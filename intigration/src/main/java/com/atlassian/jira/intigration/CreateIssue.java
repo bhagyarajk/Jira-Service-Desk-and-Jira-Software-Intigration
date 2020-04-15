@@ -18,8 +18,10 @@ public class CreateIssue {
 				+ "\",\n        \"issuetype\": {\n            \"id\": \"10004\"\n        },\n        \"assignee\": {\n            \"name\": \"BhagyarajK\"\n        },\n       \"description\" : \""
 				+ description + "\"\n}}";
 		Authentication authentication = new Authentication();
+		String userName = "";
+		String password="";
 
-		HttpURLConnection createIssueConnection = authentication.authenticate(createIssueUrl);
+		HttpURLConnection createIssueConnection = authentication.authenticate(createIssueUrl, userName, password);
 		createIssueConnection.setRequestMethod("POST");
 		OutputStream outputStream = createIssueConnection.getOutputStream();
 		outputStream.write(createIssueJsonInfo.getBytes("UTF-8"));

@@ -15,9 +15,11 @@ public class GetUpdateInfo {
 
 		String getUpdateUrl = "http://localhost:8080/rest/api/2/search";
 		Authentication authentication = new Authentication();
+		String userName = "";
+		String password="";
 
 		CreateIssue create = new CreateIssue();
-		HttpURLConnection getUpdateConnection = authentication.authenticate(getUpdateUrl);
+		HttpURLConnection getUpdateConnection = authentication.authenticate(getUpdateUrl, userName,  password);
 		getUpdateConnection.setRequestMethod("POST");
 		OutputStream outputStream = getUpdateConnection.getOutputStream();
 		outputStream.write(getUpdateJsonInfo.getBytes("UTF-8"));
